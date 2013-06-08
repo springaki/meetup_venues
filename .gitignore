@@ -1,8 +1,35 @@
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+
+# customize
+.DS_Store
+vendor/
+vendor/bundle
+log/
+
+# rails
 *.rbc
 *.sassc
 .sass-cache
 capybara-*.html
 .rspec
+.rvmrc
 /.bundle
 /vendor/bundle
 /log/*
@@ -14,3 +41,4 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+.project
