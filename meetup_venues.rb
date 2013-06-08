@@ -7,7 +7,7 @@ module MeetupVenues
       haml :index
     end
 
-    get '/screen.css' do
+    get '/css/screen.css' do
       scss :screen
     end
   end
