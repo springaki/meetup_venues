@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-require './server.rb'
+require './meetup_venues.rb'
 
-run Sinatra::Application
+run MeetupVenues::Application
 
