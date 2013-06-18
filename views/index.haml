@@ -2,8 +2,17 @@
 %html
   %head
     %link(rel="stylesheet" href="/css/screen.css" type="text/css")
+    %script(src="/js/jquery-1.10.1.min.js")
+    %script(src="/js/knockout-2.2.1.js")
+    %script(src="/js/venue.js")
     :css
-      body { background-color: #000; color: #fff; }
+      body { background-color: #EEE; color: #000; }
 
   %body
-    %hi Meetup Venues
+    %img(data-bind="attr : { src: url}")
+    %div(data-bind="text: url")
+    %div(data-bind="text: access")
+    %div(data-bind="text: time")
+    %input(data-bind="value: input_area, valueUpdate: 'afterkeydown'")
+    %div(data-bind="text: output_area")
+    %button(data-bind="click: clearButton")
