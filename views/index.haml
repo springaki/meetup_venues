@@ -1,18 +1,53 @@
 !!!
 %html
   %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
+    %title= "Meetup Venues"
+    %link{:href => "../assets/ico/favicon.ico", :rel => "shortcut icon"}
+
     %link(rel="stylesheet" href="/css/screen.css" type="text/css")
+    %link(rel="stylesheet" href="/css/bootstrap.min.css" type="text/css")
+    %link(rel="stylesheet" href="/css/bootstrap-responsive.min.css" type="text/css")
     %script(src="/js/jquery-1.10.1.min.js")
     %script(src="/js/knockout-2.2.1.js")
+    %script(src="/js/bootstrap.min.js")
     %script(src="/js/venue.js")
     :css
       body { background-color: #EEE; color: #000; }
-
   %body
-    %img(data-bind="attr : { src: url}")
-    %div(data-bind="text: url")
-    %div(data-bind="text: access")
-    %div(data-bind="text: time")
-    %input(data-bind="value: input_area, valueUpdate: 'afterkeydown'")
-    %div(data-bind="text: output_area")
-    %button(data-bind="click: clearButton")
+    %br
+    %br
+    %header.navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "#"} Meetup Venues
+          .nav-collapse.collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#kansai"} Kansai
+
+
+    .row
+    %div(data-bind="foreach: venues")
+      %ul.thumbnails
+        %li
+          .box#box
+            %span.products-left
+              = "xx"
+          .span2
+            %img(data-bind="attr: { src: url}")
+            %br
+            %span.label.label-info
+              %div(data-bind="text: access")
+
+    .container
+      %hr
+        %footer
+          %p &copy; Meetup Venues 2012

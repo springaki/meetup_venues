@@ -1,10 +1,10 @@
 jQuery(document).ready(function() {
   function VenueViewModel() {
-    self = this;
+    s = this;
 
-//     self.url = ko.observable('https://d2wpg9j0oo19pf.cloudfront.net/venues_photos/20_normal_1367894316_caosaka.jpg');
-    self.url = ko.observable('xxxxxx');
-    self.access = ko.computed(function() {
+    s.url = ko.observable('https://d2wpg9j0oo19pf.cloudfront.net/events_banners/3270_normal_1363521591_photo2.jpeg');
+//    s.url = ko.observable('xxxxxx');
+    s.access = ko.computed(function() {
         var nowdate = new Date();
         var year = nowdate.getFullYear(); // 年 
         var mon  = nowdate.getMonth() + 1; // 月 
@@ -18,20 +18,27 @@ jQuery(document).ready(function() {
         return hour + ':' + min + ':' + sec;
       }
       );
-    self.time = ko.observable(new Date());
-    self.input_area = ko.observable('init');
-    self.output_area = ko.computed(function() {
-        return self.time() + self.input_area() + 'さん';
-      }, self);
-    self.clearButton = function() {
-        self.input_area("");
-        self.output_area("");
+    s.time = ko.observable(new Date());
+    s.input_area = ko.observable('init');
+    s.output_area = ko.computed(function() {
+        return s.time() + s.input_area() + 'さん';
+      }, s);
+    s.clearButton = function() {
+        s.input_area("");
+        s.output_area("");
       };
-    setInterval(function() {self.time(new Date())},1000);
+    setInterval(function() {s.time(new Date())},1000);
   };
-  //var id = location.hash.replace(/^#/, '');
-  //venueViewModel.id(id);
-  ko.applyBindings(new VenueViewModel());
 
-  }
-);
+  function VenueViewModelEx() {
+    self = this;
+
+    self.venues = ko.observableArray();
+    self.venues.push(new VenueViewModel());
+    self.venues.push(new VenueViewModel());
+    self.venues.push(new VenueViewModel());
+    self.venues.push(new VenueViewModel());
+//    setInterval(function() {self.venues.push(new VenueViewModel())}, 1000);
+  };
+  ko.applyBindings(new VenueViewModelEx());
+});

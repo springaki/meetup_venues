@@ -1,3 +1,33 @@
 body {
   background-color: #EEE;
 }
+
+.products-left {
+  display: block;
+  width: 50px; 
+  color: #614611;
+  background: #fdce71;
+  font-size: 13px;
+  line-height: 13px;
+  padding: 5px 10px;
+  text-shadow: none;
+  text-align: center;
+  position: relative;
+  left: -3px;
+  top: 5px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+}
+
+.box {
+	display: block;
+	height: 50px;
+	width: 50px; 
+	overflow: hidden;
+  position: relative;
+  left: 110px;
+  top: 50px;
+}
+
