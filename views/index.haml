@@ -11,6 +11,9 @@
     %link(rel="stylesheet" href="/css/bootstrap-responsive.min.css" type="text/css")
     %script(src="/js/jquery-1.10.1.min.js")
     %script(src="/js/knockout-2.2.1.js")
+
+    %script(src="/js/knockout.mapping-latest.js")
+    %script(src="/js/moment.min.js")
     %script(src="/js/bootstrap.min.js")
     %script(src="/js/venue.js")
     :css
@@ -33,19 +36,26 @@
               %li
                 %a{:href => "#kansai"} Kansai
 
+    %br
+    %br
+    %div{"data-bind" => "template: {name: 'model-template', foreach: viewModels}"}
 
-    .row
-    %div(data-bind="foreach: venues")
-      %ul.thumbnails
-        %li
-          .box#box
-            %span.products-left
-              = "xx"
-          .span2
-            %img(data-bind="attr: { src: url}")
-            %br
-            %span.label.label-info
-              %div(data-bind="text: access")
+    
+    %div.container
+      %div.row
+        %script#model-template{:type => "text/html"}
+          %div
+            .span4
+              %ul.thumbnails
+                %li
+                  %img(data-bind="attr: {src: image}")
+                  %br
+                  %span.label.label-info
+                  %a{'data-bind' => 'attr: { href: url }'}
+                    %div(data-bind="text: name")
+                  %div(data-bind="text: access")
+                  %div(data-bind="text: capacity")
+                  %div(data-bind="text: comment")
 
     .container
       %hr

@@ -21,6 +21,7 @@ module MeetupVenues
       data_path = File.join(File.dirname(__FILE__) ,'data')
       database = Database.new(data_path)
       @DATA_JSON = JSON.dump(database.data)
+      p @DATA_JSON
     end
 
     get '/' do
