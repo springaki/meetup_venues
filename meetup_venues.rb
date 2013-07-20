@@ -17,7 +17,6 @@ end
 
 module MeetupVenues
   class Application < Sinatra::Application
-    attr_reader :json
 
     configure do
       data_path = File.join(File.dirname(__FILE__) ,'data')
