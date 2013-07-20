@@ -17,11 +17,13 @@ end
 
 module MeetupVenues
   class Application < Sinatra::Application
+    attr_reader :json
+
     configure do
       data_path = File.join(File.dirname(__FILE__) ,'data')
       database = Database.new(data_path)
-      @DATA_JSON = JSON.dump(database.data)
-      p @DATA_JSON
+      @@json = JSON.dump(database.data)
+      p @@json
     end
 
     get '/' do
@@ -34,10 +36,7 @@ module MeetupVenues
 
     get '/data.json' do
       content_type :json
-      data_path = File.join(File.dirname(__FILE__) ,'data')
-      database = Database.new(data_path)
-      @DATA_JSON = JSON.dump(database.data)
-      @DATA_JSON
+      @@json
     end
   end
 end
